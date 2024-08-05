@@ -1,0 +1,11 @@
+.wrapper {
+    height: var(--default-layout-height);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
+}
+
+.inner {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

@@ -3,10 +3,16 @@
 
 :root {
     --primary: #ff3b5c;
+
+    // default layout
+    --default-layout-height: 60px;
+    --default-layout-sidebar-width: 240px;
 }
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 html {
