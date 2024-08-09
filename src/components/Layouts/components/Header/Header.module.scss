@@ -33,11 +33,13 @@
     .search-input {
         flex: 1;
         background-color: transparent;
+        font-size: 16px;
         caret-color: var(--primary);
     }
 
     .submit-btn {
         width: var(--button-width);
+        color: var(--icon-color);
         height: 100%;
         border-top-right-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
@@ -85,4 +87,22 @@
         width: 16px;
         height: 16px;
     }
+}
+
+.search-results {
+    width: 500px;
+}
+
+.search-title {
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #16182380;
+}
+
+.actions {
+    display: inline-flex;
+    align-items: center;
 }
