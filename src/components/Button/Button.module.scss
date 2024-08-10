@@ -42,7 +42,10 @@
 
 .primary {
     background-color: var(--primary);
-    color: var(--white);
+
+    .title {
+        color: var(--white);
+    }
 
     &:hover {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
@@ -51,8 +54,11 @@
 
 .outline {
     background-color: var(--white);
-    color: var(--primary);
     border: 1px solid var(--primary);
+
+    .title {
+        color: var(--primary);
+    }
 
     &:hover {
         background-color: #fe2c550f;

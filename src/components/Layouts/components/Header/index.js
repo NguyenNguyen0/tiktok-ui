@@ -49,9 +49,7 @@ function Header() {
                 </Tippy>
 
                 <div className={cx('actions')}>
-                    <Button primary disabled onClick={() => alert('sss')}>
-                        Log in
-                    </Button>
+                    <Button primary>Log in</Button>
                     {/* <i>
                         <FontAwesomeIcon icon={faEllipsisVertical} />
                     </i> */}
