@@ -1,15 +1,43 @@
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+    faMagnifyingGlass,
+    faCircleXmark,
+    faSpinner,
+    faEllipsisVertical,
+    faHouseUser,
+    faLanguage,
+    faCircleQuestion,
+    faMoon,
+} from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images/index';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faHouseUser} />,
+        title: 'Công cụ cho nhà sáng tạo',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faLanguage} />,
+        title: 'Tiếng Việt',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Phản hồi và trợ giúp',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faMoon} />,
+        title: 'Chế độ tối',
+    },
+];
 
 function Header() {
     return (
@@ -50,9 +78,12 @@ function Header() {
 
                 <div className={cx('actions')}>
                     <Button primary>Log in</Button>
-                    {/* <i>
-                        <FontAwesomeIcon icon={faEllipsisVertical} />
-                    </i> */}
+
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </div>
