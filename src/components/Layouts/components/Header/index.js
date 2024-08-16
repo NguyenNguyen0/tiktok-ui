@@ -1,4 +1,6 @@
 import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
+import 'tippy.js/dist/tippy.css';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -10,6 +12,13 @@ import {
     faLanguage,
     faCircleQuestion,
     faMoon,
+    faUser,
+    faCoins,
+    faGear,
+    faRightFromBracket,
+    faMessage,
+    faPaperPlane,
+    faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Header.module.scss';
@@ -55,7 +64,29 @@ const MENU_ITEMS = [
     },
 ];
 
+const USER_MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: 'Xem hồ sơ',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCoins} />,
+        title: 'Nhận Xu',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Cài đặt',
+    },
+    ...MENU_ITEMS,
+    {
+        icon: <FontAwesomeIcon icon={faRightFromBracket} />,
+        title: 'Đăng xuất ',
+        separate: true,
+    },
+];
 function Header() {
+    const currentUser = true;
+
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
             case 'language':
@@ -71,7 +102,7 @@ function Header() {
             <div className={cx('inner')}>
                 <img src={images.logo} alt="titok" width="118" height="42" />
 
-                <Tippy
+                <HeadlessTippy
                     disabled
                     interactive
                     render={(attrs) => (
@@ -100,15 +131,41 @@ function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     </form>
-                </Tippy>
+                </HeadlessTippy>
 
                 <div className={cx('actions')}>
-                    <Button primary>Log in</Button>
+                    {currentUser ? (
+                        <>
+                            <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} className={cx('upload-btn')}>
+                                Tải lên
+                            </Button>
+                            <Tippy content="Tin nhắn">
+                                <button className={cx('message-btn')}>
+                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                </button>
+                            </Tippy>
+                            <Tippy content="Hộp thư">
+                                <button className={cx('message-box-btn')}>
+                                    <FontAwesomeIcon icon={faMessage} />
+                                </button>
+                            </Tippy>
+                        </>
+                    ) : (
+                        <Button primary>Log in</Button>
+                    )}
 
-                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                    <Menu items={currentUser ? USER_MENU_ITEMS : MENU_ITEMS} onChange={handleMenuChange}>
+                        {currentUser ? (
+                            <img
+                                className={cx('user-avatar')}
+                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/0227fb12e1a69b18b48152873ba4d59d~c5_720x720.jpeg?lk3s=a5d48078&nonce=52884&refresh_token=8160ad77e5c62e6944921ba89d975ef3&x-expires=1723960800&x-signature=FwvJKDBpyZ9P0nFZLXSblIdEZxc%3D&shp=a5d48078&shcp=81f88b70"
+                                alt="Nguyen Van A"
+                            />
+                        ) : (
+                            <button className={cx('more-btn')}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        )}
                     </Menu>
                 </div>
             </div>
