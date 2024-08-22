@@ -1,5 +1,4 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root {
     --primary: #ff3b5c;
@@ -23,16 +22,47 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'TitokFont', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
 }
 
+@font-face {
+    font-family: TitokFont;
+    src: url(/assets/fonts/TikTokFont-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: TitokFont;
+    src: url(/assets/fonts/TikTokFont-Semibold.woff2);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: TitokFont;
+    src: url(/assets/fonts/TikTokFont-Bold.woff2);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: TitokDisplayFont;
+    src: url(/assets/fonts/TikTokDisplayFont-Semibold.woff2);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: TitokDisplayFont;
+    src: url(/assets/fonts/TikTokDisplayFont-Bold.woff2);
+    font-weight: 700;
+}
+
 button,
 input,
 [tabindex] {
+    font-family: 'TitokFont', sans-serif;
     outline: none;
     border: none;
 }

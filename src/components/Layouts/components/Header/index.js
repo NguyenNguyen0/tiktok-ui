@@ -4,20 +4,9 @@ import 'tippy.js/dist/tippy.css';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faMagnifyingGlass,
     faCircleXmark,
     faSpinner,
     faEllipsisVertical,
-    faHouseUser,
-    faLanguage,
-    faCircleQuestion,
-    faMoon,
-    faUser,
-    faCoins,
-    faGear,
-    faRightFromBracket,
-    faMessage,
-    faPaperPlane,
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,15 +16,29 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import {
+    SearchIcon,
+    PaperPlaneIcon,
+    MessageIcon,
+    PlayHouseIcon,
+    LanguageIcon,
+    HelpIcon,
+    MoonIcon,
+    UserIcon,
+    GearIcon,
+    LogOutIcon,
+    TiktokCoinIcon,
+} from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faHouseUser} />,
+        icon: <PlayHouseIcon />,
         title: 'Công cụ cho nhà sáng tạo',
     },
     {
-        icon: <FontAwesomeIcon icon={faLanguage} />,
+        icon: <LanguageIcon />,
         title: 'Tiếng Việt',
         children: {
             title: 'Language',
@@ -54,32 +57,32 @@ const MENU_ITEMS = [
         },
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <HelpIcon />,
         title: 'Phản hồi và trợ giúp',
         to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faMoon} />,
+        icon: <MoonIcon />,
         title: 'Chế độ tối',
     },
 ];
 
 const USER_MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faUser} />,
+        icon: <UserIcon />,
         title: 'Xem hồ sơ',
     },
     {
-        icon: <FontAwesomeIcon icon={faCoins} />,
+        icon: <TiktokCoinIcon />,
         title: 'Nhận Xu',
     },
     {
-        icon: <FontAwesomeIcon icon={faGear} />,
+        icon: <GearIcon />,
         title: 'Cài đặt',
     },
     ...MENU_ITEMS,
     {
-        icon: <FontAwesomeIcon icon={faRightFromBracket} />,
+        icon: <LogOutIcon />,
         title: 'Đăng xuất ',
         separate: true,
     },
@@ -128,7 +131,7 @@ function Header() {
                         </span>
 
                         <button className={cx('submit-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </form>
                 </HeadlessTippy>
@@ -136,17 +139,20 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} className={cx('upload-btn')}>
+                            <Button
+                                leftIcon={<FontAwesomeIcon icon={faPlus} />}
+                                className={cx('upload-btn')}
+                            >
                                 Tải lên
                             </Button>
                             <Tippy content="Tin nhắn">
                                 <button className={cx('message-btn')}>
-                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                    <PaperPlaneIcon />
                                 </button>
                             </Tippy>
                             <Tippy content="Hộp thư">
                                 <button className={cx('message-box-btn')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -154,9 +160,12 @@ function Header() {
                         <Button primary>Log in</Button>
                     )}
 
-                    <Menu items={currentUser ? USER_MENU_ITEMS : MENU_ITEMS} onChange={handleMenuChange}>
+                    <Menu
+                        items={currentUser ? USER_MENU_ITEMS : MENU_ITEMS}
+                        onChange={handleMenuChange}
+                    >
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/0227fb12e1a69b18b48152873ba4d59d~c5_720x720.jpeg?lk3s=a5d48078&nonce=52884&refresh_token=8160ad77e5c62e6944921ba89d975ef3&x-expires=1723960800&x-signature=FwvJKDBpyZ9P0nFZLXSblIdEZxc%3D&shp=a5d48078&shcp=81f88b70"
                                 alt="Nguyen Van A"

@@ -45,8 +45,9 @@
         border-bottom-right-radius: var(--border-radius);
 
         svg {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
+            margin-left: -2px;
         }
 
         &:hover {
@@ -132,6 +133,7 @@
     height: 36px;
     font-size: 16px;
     background-color: var(--white);
+    border-radius: 2px;
     &:hover {
         cursor: pointer;
         background-color: #16182308;
