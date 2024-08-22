@@ -4,7 +4,7 @@ export const SearchIcon = ({ width = '3.2rem', height = '3.2rem', className }) =
         height={height}
         className={className}
         viewBox="0 0 48 48"
-        fill="rgba(22, 24, 35, .34)"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
@@ -16,7 +16,14 @@ export const SearchIcon = ({ width = '3.2rem', height = '3.2rem', className }) =
 );
 
 export const PaperPlaneIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
-    <svg className={className} width={width} height={height} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 48 48"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
         <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -26,7 +33,14 @@ export const PaperPlaneIcon = ({ width = '2.4rem', height = '2.4rem', className 
 );
 
 export const MessageIcon = ({ width = '3rem', height = '3rem', className }) => (
-    <svg className={className} width={width} height={height} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 32 32"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
         <path
             fill-rule="evenodd"
             clip-rule="evenodd"
