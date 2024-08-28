@@ -44,24 +44,24 @@
     width: 100%;
     position: relative;
     cursor: pointer;
-}
 
-.back-btn {
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    background-color: transparent;
-    cursor: pointer;
-    margin-left: 60px;
-}
+    .back-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        background-color: transparent;
+        cursor: pointer;
+        margin-left: 60px;
+    }
 
-.title {
-    font-size: 18px;
-    color: var(--text-color);
-    font-weight: 500;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    user-select: none;
+    .title {
+        font-size: 18px;
+        color: var(--text-color);
+        font-weight: 600;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        user-select: none;
+    }
 }

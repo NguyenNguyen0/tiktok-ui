@@ -1,23 +1,14 @@
-import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
-import 'tippy.js/dist/tippy.css';
 import classNames from 'classnames/bind';
+import 'tippy.js/dist/tippy.css';
+import Tippy from '@tippyjs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCircleXmark,
-    faSpinner,
-    faEllipsisVertical,
-    faPlus,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images/index';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import {
-    SearchIcon,
     PaperPlaneIcon,
     MessageIcon,
     PlayHouseIcon,
@@ -30,8 +21,10 @@ import {
     TiktokCoinIcon,
 } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
+
 const MENU_ITEMS = [
     {
         icon: <PlayHouseIcon />,
@@ -105,36 +98,8 @@ function Header() {
             <div className={cx('inner')}>
                 <img src={images.logo} alt="titok" width="118" height="42" />
 
-                <HeadlessTippy
-                    disabled
-                    interactive
-                    render={(attrs) => (
-                        <div className={cx('search-results')} tabIndex={-1} {...attrs}>
-                            <PopperWrapper>
-                                <div className={cx('search-title')}>Tài khoản</div>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <form className={cx('search-form')} action="/search">
-                        <input className={cx('search-input')} placeholder="Tìm kiếm" />
-
-                        <span className={cx('input-inner-wrapper')}>
-                            <FontAwesomeIcon className={cx('loading-icon')} icon={faSpinner} />
-                            <button className={cx('reset-input-btn')}>
-                                <FontAwesomeIcon icon={faCircleXmark} />
-                            </button>
-                        </span>
-
-                        <button className={cx('submit-btn')}>
-                            <SearchIcon />
-                        </button>
-                    </form>
-                </HeadlessTippy>
+                {/* search */}
+                <Search />
 
                 <div className={cx('actions')}>
                     {currentUser ? (
