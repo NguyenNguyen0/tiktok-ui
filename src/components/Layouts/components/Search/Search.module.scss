@@ -65,6 +65,15 @@
     }
 }
 
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .input-inner-wrapper {
     position: relative;
     width: 40px;
@@ -78,6 +87,10 @@
         color: var(--icon-color);
         width: 16px;
         height: 16px;
+    }
+
+    .loading-icon {
+        animation: spinner 1s linear infinite;
     }
 }
 

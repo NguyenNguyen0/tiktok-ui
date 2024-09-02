@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,14 +8,17 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import styles from './Search.module.scss';
-import { useRef, useState } from 'react';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
 function Search() {
-    const [searchResult, setSearchResult] = useState([1]);
     const [searchValue, setSearchValue] = useState('');
+    const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
+    const [loading, setLoading] = useState(false);
+
+    const debounceValue = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
 
@@ -25,6 +29,30 @@ function Search() {
         inputRef.current.focus();
     };
 
+    const handleChangeInput = (e) => {
+        const inputValue = e.target.value;
+        if (searchValue || inputValue.trimStart()) {
+            setSearchValue(inputValue.trimStart());
+        }
+    };
+
+    useEffect(() => {
+        if (!debounceValue.trim()) {
+            setSearchResult([]);
+            return;
+        }
+
+        setLoading(true);
+        fetch(
+            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+                debounceValue,
+            )}&type=less`,
+        )
+            .then((res) => res.json())
+            .then((res) => setSearchResult(res.data))
+            .finally(() => setLoading(false));
+    }, [debounceValue]);
+
     return (
         <span>
             <HeadlessTippy
@@ -34,10 +62,9 @@ function Search() {
                     <div className={cx('search-results')} tabIndex={-1} {...attrs}>
                         <PopperWrapper>
                             <div className={cx('search-title')}>Tài khoản</div>
-                            <AccountItem />
-                            <AccountItem />
-                            <AccountItem />
-                            <AccountItem />
+                            {searchResult.map((result) => (
+                                <AccountItem key={result.id} data={result} />
+                            ))}
                         </PopperWrapper>
                     </div>
                 )}
@@ -49,15 +76,19 @@ function Search() {
                         value={searchValue}
                         className={cx('search-input')}
                         placeholder="Tìm kiếm"
-                        onChange={(e) => setSearchValue(e.target.value)}
+                        onChange={handleChangeInput}
                         onFocus={() => setShowResult(true)}
                     />
 
                     <span className={cx('input-inner-wrapper')}>
-                        <FontAwesomeIcon className={cx('loading-icon')} icon={faSpinner} />
-                        <button className={cx('reset-input-btn')} onClick={handleResetInput}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
+                        {loading && (
+                            <FontAwesomeIcon className={cx('loading-icon')} icon={faSpinner} />
+                        )}
+                        {searchValue && !loading && (
+                            <button className={cx('reset-input-btn')} onClick={handleResetInput}>
+                                <FontAwesomeIcon icon={faCircleXmark} />
+                            </button>
+                        )}
                     </span>
 
                     <button className={cx('submit-btn')}>
