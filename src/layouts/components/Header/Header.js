@@ -23,7 +23,7 @@ import {
 import Image from '~/components/Image';
 import Search from '../Search';
 import { Link } from 'react-router-dom';
-import routes from '~/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -94,7 +94,7 @@ const MENU_ITEMS = [
     {
         icon: <HelpIcon />,
         title: 'Phản hồi và trợ giúp',
-        to: routes.feedback,
+        to: config.routes.feedback,
     },
     {
         icon: <MoonIcon />,
@@ -122,6 +122,7 @@ const USER_MENU_ITEMS = [
         separate: true,
     },
 ];
+
 function Header() {
     const currentUser = true;
 
@@ -138,7 +139,7 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routes.home} className={cx('logo')}>
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="titok" width="118" height="42" />
                 </Link>
 
