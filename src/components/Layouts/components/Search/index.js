@@ -54,7 +54,9 @@ function Search() {
     }, [debounceValue]);
 
     return (
-        <span>
+        // Using a wrapper <div> tag around the reference element solves
+        // this by creating a new parentNode context.
+        <div>
             <HeadlessTippy
                 visible={showResult && searchResult.length > 0}
                 interactive
@@ -91,12 +93,12 @@ function Search() {
                         )}
                     </span>
 
-                    <button className={cx('submit-btn')}>
+                    <button className={cx('submit-btn')} onClick={(e) => e.preventDefault()}>
                         <SearchIcon />
                     </button>
                 </form>
             </HeadlessTippy>
-        </span>
+        </div>
     );
 }
 

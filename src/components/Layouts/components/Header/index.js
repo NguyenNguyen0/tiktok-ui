@@ -22,6 +22,8 @@ import {
 } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
+import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -43,6 +45,46 @@ const MENU_ITEMS = [
                 },
                 {
                     type: 'language',
+                    code: 'es',
+                    title: 'Español',
+                },
+                {
+                    type: 'language',
+                    code: 'fr',
+                    title: 'Français',
+                },
+                {
+                    type: 'language',
+                    code: 'de',
+                    title: 'Deutsch',
+                },
+                {
+                    type: 'language',
+                    code: 'it',
+                    title: 'Italiano',
+                },
+                {
+                    type: 'language',
+                    code: 'pt',
+                    title: 'Português',
+                },
+                {
+                    type: 'language',
+                    code: 'ru',
+                    title: 'Русский',
+                },
+                {
+                    type: 'language',
+                    code: 'ja',
+                    title: '日本語',
+                },
+                {
+                    type: 'language',
+                    code: 'zh',
+                    title: '中文',
+                },
+                {
+                    type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
                 },
@@ -52,7 +94,7 @@ const MENU_ITEMS = [
     {
         icon: <HelpIcon />,
         title: 'Phản hồi và trợ giúp',
-        to: '/feedback',
+        to: routes.feedback,
     },
     {
         icon: <MoonIcon />,
@@ -96,9 +138,10 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="titok" width="118" height="42" />
+                <Link to={routes.home} className={cx('logo')}>
+                    <img src={images.logo} alt="titok" width="118" height="42" />
+                </Link>
 
-                {/* search */}
                 <Search />
 
                 <div className={cx('actions')}>

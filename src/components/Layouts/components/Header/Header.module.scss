@@ -1,6 +1,12 @@
 .wrapper {
     height: var(--default-layout-height);
+    background-color: var(--white);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
 
 .inner {
@@ -13,9 +19,15 @@
     justify-content: space-between;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .actions {
     display: inline-flex;
     align-items: center;
+    font-family: var(--font-family);
 }
 
 .user-avatar {
