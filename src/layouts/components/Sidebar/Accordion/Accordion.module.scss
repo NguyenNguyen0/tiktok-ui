@@ -1,0 +1,33 @@
+.wrapper {
+    &::-webkit-details-marker {
+        display: none;
+    }
+}
+
+.wrapper[open] {
+    .title {
+        color: #161823;
+    }
+}
+
+.title {
+    list-style: none;
+    user-select: none;
+    font-size: 15px;
+    line-height: 22px;
+    margin-top: 0px;
+    cursor: pointer;
+    color: #16182380;
+    font-family: var(--display-font-family);
+    font-weight: 700;
+    width: fit-content;
+
+    &::marker,
+    &::-webkit-details-marker {
+        display: none;
+    }
+}
+
+.content {
+    margin-bottom: 8px;
+}

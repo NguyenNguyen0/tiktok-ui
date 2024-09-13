@@ -1,3 +1,211 @@
 .wrapper {
     width: var(--default-layout-sidebar-width);
+    padding-top: 20px;
+    padding-left: 8px;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.following {
+    position: relative;
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.following::after,
+.following::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    background-color: #1618231f;
+}
+
+.following::after {
+    top: 100%;
+}
+
+.following-title {
+    padding-left: 8px;
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.following-desc {
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding-left: 8px;
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 20px 8px 24px;
+    position: relative;
+
+    .login-desc {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        color: var(--text-color);
+        opacity: 0.5;
+    }
+
+    .login-btn {
+        margin-top: 20px;
+        margin-right: 8px;
+        padding: 14px 0;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        border-top: 1px solid var(--black-color);
+        opacity: 0.1;
+        position: absolute;
+        top: 0;
+        left: 8px;
+        right: 8px;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        border-top: 1px solid var(--black-color);
+        opacity: 0.1;
+        position: absolute;
+        bottom: 0;
+        left: 8px;
+        right: 8px;
+    }
+}
+
+.suggest-accounts {
+    padding: 16px 0;
+    width: 100%;
+    position: relative;
+
+    .suggest-accounts-title {
+        padding-left: 8px;
+        font-size: 14px;
+        font-family: var(--font-family);
+        color: var(--text-color);
+        opacity: 0.7;
+        font-weight: 600;
+    }
+
+    .suggest-accounts-list {
+        padding: 0;
+        list-style: 0;
+    }
+
+    .suggest-accounts-item {
+        margin: 0;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        border-top: 1px solid var(--black-color);
+        opacity: 0.1;
+        position: absolute;
+        bottom: 0;
+        left: 8px;
+        right: 8px;
+    }
+}
+
+.tiktok-house-effect-link {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.tiktok-house-effect-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    position: relative;
+}
+
+.tiktok-house-effect-img {
+    width: 208px;
+    height: 52px;
+    user-select: none;
+}
+
+.tiktok-house-effect-desc {
+    width: 144px;
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 16px;
+    color: #fff5c9;
+    position: absolute;
+    top: 50%;
+    left: 52px;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.footer-container {
+    width: 100%;
+    padding-top: 16px;
+    padding-left: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.accordion-link-list:not(:first-child) {
+    margin-top: 15px;
+}
+
+.link-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.link-list-item {
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+}
+
+.link-list-link {
+    text-decoration: none;
+    color: var(--text-color);
+    opacity: 0.5;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.footer-copyright {
+    font-family: var(--font-family);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+    opacity: 0.5;
 }

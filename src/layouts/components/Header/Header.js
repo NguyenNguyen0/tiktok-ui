@@ -21,6 +21,7 @@ import {
     TiktokCoinIcon,
 } from '~/components/Icons';
 import Image from '~/components/Image';
+import Badge from '~/components/Badge';
 import Search from '../Search';
 import { Link } from 'react-router-dom';
 import config from '~/config';
@@ -162,6 +163,7 @@ function Header() {
                             <Tippy content="Hộp thư">
                                 <button className={cx('message-box-btn')}>
                                     <MessageIcon />
+                                    <Badge className={cx('message-badge')}>1</Badge>
                                 </button>
                             </Tippy>
                         </>

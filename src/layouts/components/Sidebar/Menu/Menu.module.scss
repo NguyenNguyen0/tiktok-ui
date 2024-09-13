@@ -1,0 +1,58 @@
+.menu {
+    width: 100%;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.menu-item {
+    width: 100%;
+    height: 48px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 4px;
+    font-size: 32px;
+    transition: background-color 0.2s linear;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+
+    &.active {
+        color: var(--primary-color);
+
+        .active-icon {
+            display: flex;
+        }
+
+        .icon {
+            display: none;
+        }
+    }
+}
+
+.active-icon,
+.icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    display: flex;
+
+    svg {
+        width: 100%;
+    }
+}
+
+.active-icon {
+    display: none;
+}
+
+.title {
+    font-family: var(--font-family);
+    font-size: 1.8rem;
+    font-weight: 700;
+}

@@ -16,7 +16,7 @@ function Button({
     large = false,
     leftIcon = null,
     rightIcon = null,
-    classNames,
+    className,
     children,
     ...passProps
 }) {
@@ -43,7 +43,7 @@ function Button({
     }
 
     const classes = cx('wrapper', {
-        [classNames]: classNames,
+        [className]: className,
         disabled,
         primary,
         outline,

@@ -1,16 +1,17 @@
 @import 'normalize.css';
 
 :root {
-    --primary: #ff3b5c;
+    --primary-color: #ff3b5c;
     --text-color: #161823;
     --icon-color: #16182357;
-    --black: #000;
-    --white: #fff;
+    --black-color: #000;
+    --white-color: #fff;
     --font-family: 'TitokFont', sans-serif;
+    --display-font-family: 'TitokDisplayFont', sans-serif;
 
     // default layout
     --default-layout-height: 60px;
-    --default-layout-sidebar-width: 240px;
+    --default-layout-sidebar-width: 232px;
 }
 
 * {
